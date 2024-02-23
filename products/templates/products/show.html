@@ -1,0 +1,23 @@
+
+{% extends 'pages/base.html' %}
+{% block title %} {{title}} {% endblock %}
+{% block header_title %} {{subtitle}} {% endblock %}
+
+{% block content %}
+<div class="row">
+  {% for product in products %}
+  <div class="col-md-4 col-lg-3 mb-2">
+    <div class="card">
+      <div class="card-body text-center">
+        <p class="card-text">Id: {{product.id}}</p>
+        
+          <p class="card-text">Price: {{product.price}}</p>
+          <p class="card-text">Quantity: {{product.quantity}}</p> 
+          <a href="{% url 'show' id=product.id %}"
+          class="btn bg-primary text-white">{{product.name}}</a>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}
